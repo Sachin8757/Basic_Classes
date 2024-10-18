@@ -12,6 +12,7 @@ const Student=new mongoose.Schema({
         type:String,
         require:true,
     },
+    admissionDate:String,
     fatherName:String,
     motherName:String,
     address:String,

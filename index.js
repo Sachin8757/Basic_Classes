@@ -54,7 +54,6 @@ app.get("/admissionpass", async (req, res) => {
 })
 app.post("/admissionpass", async (req, res) => {
    let {add}=req.body;
-   console.log(add)
    if(add==='Sachin@875788'){
     res.redirect("/admission")
    } else{
@@ -65,14 +64,15 @@ app.get("/admission", async (req, res) => {
     res.render("admission.ejs")
 })
 app.post("/admission", async (req, res) => {
-    let { studentName, phoneNo, fatherName, motherName, address, id } = req.body;
+    let { studentName, phoneNo, fatherName, motherName, address, id,admissionDate } = req.body;
     let student = new Student({
         studentName: studentName,
         phoneNo: phoneNo,
         fatherName: fatherName,
         motherName: motherName,
         address: address,
-        id: id
+        id: id,
+        admissionDate:admissionDate
     })
     let newstudent = await Student.create(student);
     res.redirect("/");
@@ -87,7 +87,7 @@ app.post("/payfee", async (req, res) => {
     if(password==='Sachin@875788'){
         try {
             const student = await Student.findOne({ id: id });
-            // console.log(student);
+           
             if (!student) {
                 res.send("Student is not found")
             } 
