@@ -21,13 +21,27 @@ app.get("/", async (req, res) => {
 app.get("/student/:id", async (req, res) => {
     let { id } = req.params;
     let student = await Student.findById(id);
-    console.log(student)
     res.render("studen.ejs", { student });
 })
 
 
 //delete node
-app.post("/stu/:id/delete", async (req, res) => {
+app.get("/deletepass/:id", async (req, res) => {
+    let {id}=req.params;
+    res.render("deletepass.ejs",{id}); 
+})
+app.post("/deletepass/:id", async (req, res) => {
+    let{id}=req.params;
+   let {add}=req.body;
+   if(add==='Sachin@875788'){
+    res.redirect(`/stu/${id}/delete`)
+   } else{
+    res.send("Password is worng");
+   }
+ 
+})
+
+app.get("/stu/:id/delete", async (req, res) => {
     // res.send("hello on delete")
     let { id } = req.params;
     let student = await Student.findByIdAndDelete(id);
@@ -35,6 +49,18 @@ app.post("/stu/:id/delete", async (req, res) => {
 })
 
 //admission node
+app.get("/admissionpass", async (req, res) => {
+    res.render("admissionpass.ejs")   
+})
+app.post("/admissionpass", async (req, res) => {
+   let {add}=req.body;
+   console.log(add)
+   if(add==='Sachin@875788'){
+    res.redirect("/admission")
+   } else{
+    res.send("Password is worng");
+   }
+})
 app.get("/admission", async (req, res) => {
     res.render("admission.ejs")
 })
@@ -57,21 +83,26 @@ app.get("/payfee", (req, res) => {
     res.render("fee.ejs")
 })
 app.post("/payfee", async (req, res) => {
-    let { id, months, payment,date } = req.body;
-    try {
-        const student = await Student.findOne({ id: id });
-        // console.log(student);
-        if (!student) {
-            res.send("Student is not found")
-        } 
-        // Update the fee for the specified month
-        student.fees.set(months, true);
-        await student.save();
-        console.log(`Fee paid for ${months}`);
-        res.redirect("/")
-    } catch (error) {
-        console.error(error.message);
+    let { id, months, password } = req.body;
+    if(password==='Sachin@875788'){
+        try {
+            const student = await Student.findOne({ id: id });
+            // console.log(student);
+            if (!student) {
+                res.send("Student is not found")
+            } 
+            // Update the fee for the specified month
+            student.fees.set(months, true);
+            await student.save();
+            console.log(`Fee paid for ${months}`);
+            res.redirect("/")
+        } catch (error) {
+            console.error(error.message);
+        }
+    }else{
+        res.send("Any One note Allow")
     }
+  
 
 })
 
