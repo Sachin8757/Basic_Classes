@@ -1,0 +1,30 @@
+.main{
+    width: 354px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 265px;
+}
+.box input{
+    width: 200px;
+    padding: 5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.btn{
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}

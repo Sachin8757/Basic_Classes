@@ -1,0 +1,83 @@
+
+.main {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.student {
+    display: flex;
+    flex-direction: row;
+
+   
+}
+
+.one {
+    width: 73%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.one h4 {
+    margin: 5px;
+    font-size: 20px;
+    margin-left: 1px;
+}
+
+.pic {
+    width: 130px;
+    height: 150px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 5px black;
+    margin: auto;
+    border-radius: 2px;
+}
+.stu{
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: -53px;
+}
+.button{
+    display: flex;
+    flex-direction: row;
+}
+.btn1{
+    width: 173px;
+    height: 40px;
+    background-color: #f80b0b;
+    border: none;
+    box-shadow: 0px 0px 5px black;
+    border-radius:10px 0px 0px 10px;
+}
+.btn2{
+    width: 172px;
+    height: 40px;
+    background-color: rgb(21, 43, 246);
+    border: none;
+    box-shadow: 0px 0px 5px black;
+    border-radius:0px 10px 10px 0px;
+}
+/* table style */
+
+.thead th{
+    color: rgba(255, 0, 0, 0.84);
+    font-size: 25px;
+}
+.table td{
+    color: rgb(34, 44, 228);
+    font-size: 20px;
+    padding: 5px;
+}
+.heder{
+    color: red;
+    font-size: 30px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}

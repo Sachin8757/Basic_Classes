@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/studen.css">
+    <title>Student</title>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="stu">
+            <h2 class="heder"><%=student.studentName%></h2>
+            <div class="pic"></div>
+            <div class="student">
+              
+                <div class="one">
+                    
+                    <h4>Id:- <%=student.id%>
+                    </h4>
+                    <h4>Phone no:- <%=student.phoneNo%>
+                    </h4>
+                    <h4>Father Name:- <%=student.fatherName%>
+                    </h4>
+                    <h4>Mother Name:- <%=student.motherName%>
+                    </h4>
+                    <h4>Address:- <%=student.address%>
+                    </h4>
+                </div>
+                <div class="tow">
+                    
+                </div>
+            </div>
+            <div class="fee">
+                <table>
+                    <thead class="thead">
+                        <tr>
+                            <th>Month</th>
+                            <!-- <th>Fee paid 2024</th> -->
+                        </tr>
+                        <tr>
+                            
+                            
+                        </tr>
+                    </thead>
+                    <% const months=[ 'January' , 'February' , 'March' , 'April' , 'May' , 'June' , 'July' , 'August'
+                        , 'September' , 'October' , 'November' , 'December' ]; %>
+                        <%var i=0%>
+                        <tbody class="table">
+                            <% student.fees.forEach(function(fee) { %>
+                                <%if(i<=11){%>
+                                <tr>   
+                                    <td style="border: 1px solid black;"><%=months[i] %></td>
+                                    </td>
+                                    <td>
+                                        
+                                        <td style="border: 1px solid black;"><%=fee %></td>
+                                    </td>
+                                </tr>
+                                <%i=i+1%>
+                                <%}%>
+                                <% }); %>
+                        </tbody>
+
+                </table>
+            </div>
+            <div class="button">
+                <form action="/stu/<%=student._id%>/delete" method="post">
+                    <button class="btn1">Delete</button>
+                </form>
+                <form action="">
+                    <button class="btn2">Edit</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
