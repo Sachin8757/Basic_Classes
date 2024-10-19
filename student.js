@@ -16,6 +16,8 @@ const Student=new mongoose.Schema({
     fatherName:String,
     motherName:String,
     address:String,
+    money:String,
+    pic:String,
     fees: {
         type: Map,
         of: Boolean,

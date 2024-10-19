@@ -56,8 +56,13 @@
                                     <td style="border: 1px solid black;"><%=months[i] %></td>
                                     </td>
                                     <td>
-                                        
-                                        <td style="border: 1px solid black;"><%=fee %></td>
+                                        <%if(fee===true){%>
+                                
+                                            <td style="border: 1px solid black;">paid</td>
+                                        <%}else{%>
+                                            <td style="border: 1px solid black;">NO</td>
+                                        <%}%>
+
                                     </td>
                                 </tr>
                                 <%i=i+1%>

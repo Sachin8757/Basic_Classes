@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const Student = require("./student.js")
-
+const rootpassword='Sachin@875788';
 const methodoverride = require('method-override');
 
 app.set("view engine", "views")
@@ -33,7 +33,7 @@ app.get("/deletepass/:id", async (req, res) => {
 app.post("/deletepass/:id", async (req, res) => {
     let{id}=req.params;
    let {add}=req.body;
-   if(add==='Sachin@875788'){
+   if(add===rootpassword){
     res.redirect(`/stu/${id}/delete`)
    } else{
     res.send("Password is worng");
@@ -49,32 +49,41 @@ app.get("/stu/:id/delete", async (req, res) => {
 })
 
 //admission node
+
 app.get("/admissionpass", async (req, res) => {
     res.render("admissionpass.ejs")   
 })
 app.post("/admissionpass", async (req, res) => {
    let {add}=req.body;
-   if(add==='Sachin@875788'){
-    res.redirect("/admission")
+   if(add===rootpassword){
+    res.redirect(`/admission/${rootpassword}`)
    } else{
     res.send("Password is worng");
    }
 })
-app.get("/admission", async (req, res) => {
-    res.render("admission.ejs")
+app.get("/admission/:pass", async (req, res) => {
+    let{pass}=req.params;
+    if(pass===rootpassword){
+        res.render("admission.ejs")
+    }else{
+        res.send("Not Allow")
+    }
+   
 })
+var id = 100;
 app.post("/admission", async (req, res) => {
-    let { studentName, phoneNo, fatherName, motherName, address, id,admissionDate } = req.body;
+    let { studentName, phoneNo, fatherName, motherName, address, admissionDate } = req.body;
     let student = new Student({
         studentName: studentName,
         phoneNo: phoneNo,
         fatherName: fatherName,
         motherName: motherName,
         address: address,
-        id: id,
+        id:`${id+1}`,
         admissionDate:admissionDate
     })
     let newstudent = await Student.create(student);
+    id=id+1;
     res.redirect("/");
 })
 
@@ -84,7 +93,7 @@ app.get("/payfee", (req, res) => {
 })
 app.post("/payfee", async (req, res) => {
     let { id, months, password } = req.body;
-    if(password==='Sachin@875788'){
+    if(password===rootpassword){
         try {
             const student = await Student.findOne({ id: id });
            
