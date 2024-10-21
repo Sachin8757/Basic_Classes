@@ -19,17 +19,17 @@
               
                 <div class="one">
                     
-                    <h4>Id:- <%=student.id%></h4>
-                    <h4>Fee:- <%=student.money%></h4>
-                    <h4>Date:- <%=student.admissionDate%></h4>
-                    <h4>Phone no:- <%=student.phoneNo%>
-                    </h4>
-                    <h4>Father Name:- <%=student.fatherName%>
-                    </h4>
-                    <h4>Mother Name:- <%=student.motherName%>
-                    </h4>
-                    <h4>Address:- <%=student.address%>
-                    </h4>
+                    <p>Id:- <%=student.id%></p>
+                    <p>Fee:- <%=student.money%></p>
+                    <p>Date:- <%=student.admissionDate%></p>
+                    <p>Phone no:- <%=student.phoneNo%>
+                    </p>
+                    <p>Father Name:- <%=student.fatherName%>
+                    </p>
+                    <p>Mother Name:- <%=student.motherName%>
+                    </p>
+                    <p>Address:- <%=student.address%>
+                    </p>
                 </div>
                 <div class="tow">
                     
@@ -74,8 +74,8 @@
                 </table>
             </div>
             <div class="button">
-                <form action="/deletepass/<%=student._id%>" method="get">
-                    <button class="btn1">Delete</button>
+                <form action="/edit/<%=student._id%>" method="get">
+                    <button class="btn1">Edit</button>
                 </form>
                 <form action="/payfee" method="get">
                     <button class="btn2">Pay fee</button>

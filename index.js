@@ -114,6 +114,10 @@ app.post("/payfee", async (req, res) => {
   
 
 })
+//edit node
+app.get("/edit/:id",(req,res)=>{
+    res.send("page on creating")
+})
 
 //listen port
 const port = 3000;

@@ -14,14 +14,14 @@
 }
 
 .one {
-    width: 73%;
     display: flex;
+    flex-direction: column; /* Stack items vertically */
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px; /* Optional padding for the container *//
 }
 
-.one h4 {
+.one p {
     margin: 5px;
     font-size: 20px;
     margin-left: 1px;
