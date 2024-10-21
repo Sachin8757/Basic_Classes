@@ -72,7 +72,7 @@ app.get("/admission/:pass", async (req, res) => {
 })
 var id = 100;
 app.post("/admission", async (req, res) => {
-    let { studentName, phoneNo, fatherName, motherName, address, admissionDate } = req.body;
+    let { studentName, phoneNo, fatherName, motherName, address, admissionDate,money } = req.body;
     let student = new Student({
         studentName: studentName,
         phoneNo: phoneNo,
@@ -80,7 +80,8 @@ app.post("/admission", async (req, res) => {
         motherName: motherName,
         address: address,
         id:`${id+1}`,
-        admissionDate:admissionDate
+        admissionDate:admissionDate,
+        money:money
     })
     let newstudent = await Student.create(student);
     id=id+1;
